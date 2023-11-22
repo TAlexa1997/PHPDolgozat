@@ -18,16 +18,22 @@ class ProductController extends Controller
     } 
  
     public function store(Request $request){ 
+        echo "e!";
         $product = new Product(); 
-        $product->item_id = $request-> item_id; 
+        $product->type_id = $request->type_id; 
         $product->date = $request->date; 
         $product->save(); 
     } 
  
     public function update(Request $request, $id){ 
         $product = Product::findOrFail($id); 
-        $product->item_id = $request-> item_id; 
+        $product->type_id = $request->type_id; 
         $product->date = $request->date; 
         $product->save(); 
+    } 
+
+    public function destroy(Request $request, $id){ 
+        $product = Product::findOrFail($id); 
+        $product->delete(); 
     } 
 }

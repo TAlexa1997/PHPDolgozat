@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Product_type;
+use App\Models\ProductType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Schema\ForeignIdColumnDefinition;
 
@@ -19,8 +19,8 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            'type_id' => Product_type::all()->random()->type_id,
-            'date' => fake()-> date(),
+            'type_id' => ProductType::all()->random()->type_id,
+            'date' => fake()-> dateTimeBetween('2023-01-01', '2023-12-01'),
         ];
     }
 }
